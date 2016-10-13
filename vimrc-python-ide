@@ -1,0 +1,133 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+if has("gui_running")
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    " alternatively, pass a path where Vundle should install plugins
+    "call vundle#begin('~/some/path/here')
+
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
+
+    " Airline:
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    " NerdTree:
+    Plugin 'scrooloose/nerdtree'
+    " Python Mode:
+    Plugin 'klen/python-mode'
+    " Python virtualenv:
+    Plugin 'jmcantrell/vim-virtualenv'
+    " Django plus plugin
+    Plugin 'tweekmonster/django-plus.vim'
+
+    " All of your Plugins must be added before the following line
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+    " To ignore plugin indent changes, instead use:
+    "filetype plugin on
+    "
+    " Brief help
+    " :PluginList       - lists configured plugins
+    " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+    " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+    " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+    "
+    " see :h vundle for more details or wiki for FAQ
+    " Put your non-Plugin stuff after this line
+    "
+
+    """ 
+    """ Plugins Settings
+    """ 
+    " --- Settings for vim-airline --- "
+    set laststatus=2
+    let g:airline_powerline_fonts = 1
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    let g:airline#extensions#tabline#enabled = 1
+
+    " --- NerdTree --- "
+    map <C-n> :NERDTreeToggle<CR>
+
+    " --- Python-mode settings --- "
+    let g:pymode_rope = 1
+
+    " Documentation
+    let g:pymode_doc = 1
+    let g:pymode_doc_key = 'K'
+
+    "Linting
+    let g:pymode_lint = 1
+    let g:pymode_lint_checker = "pyflakes,pep8"
+    " Auto check on save
+    let g:pymode_lint_write = 1
+
+    " Support virtualenv
+    let g:pymode_virtualenv = 1
+
+    " Enable breakpoints plugin
+    let g:pymode_breakpoint = 1
+    let g:pymode_breakpoint_bind = '<leader>b'
+
+    " syntax highlighting
+    let g:pymode_syntax = 1
+    let g:pymode_syntax_all = 1
+    let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+    let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+    " Don't autofold code
+    let g:pymode_folding = 0
+
+    " --- VirtualEnv --- "
+    set guioptions-=L
+    let g:virtualenv_directory = $PYVENV_HOME
+    let g:virtualenv_stl_format = '[%n]'
+
+    " --- <Plugin Name> --- "
+endif
+
+"""
+""" My Settings
+"""
+syntax on
+set bg=dark
+color murphy
+set number
+set encoding=utf-8
+
+""" split navigations """
+" --------------------- "
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Buffer switch 
+nnoremap <C-S-tab> :bprevious<CR>
+nnoremap <C-tab>   :bnext<CR>
+
+" Use <leader>l to toggle display of whitespace
+nmap <leader>l :set list!<CR>
+" automatically change window's cwd to file's dir
+set autochdir
+
+" I'm prefer spaces to tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" more subtle popup colors
+if has ('gui_running')
+    highlight Pmenu guibg=#cccccc gui=bold
+endif
+" ----
+
+""" 
+""" Filetypes handling
+""" 
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
