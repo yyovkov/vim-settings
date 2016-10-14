@@ -2,7 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-if has("gui_running")
+if has("gui_running") " Start of pluggins IF
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
     " alternatively, pass a path where Vundle should install plugins
@@ -50,6 +50,8 @@ if has("gui_running")
 
     " --- NerdTree --- "
     map <C-n> :NERDTreeToggle<CR>
+   " Ignore filestypes
+   let NERDTreeIgnore = ['\.pyc$']
 
     " --- Python-mode settings --- "
     let g:pymode_rope = 1
@@ -86,7 +88,7 @@ if has("gui_running")
     let g:virtualenv_stl_format = '[%n]'
 
     " --- <Plugin Name> --- "
-endif
+endif " End of plugins IF
 
 """
 """ My Settings
