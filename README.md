@@ -40,9 +40,9 @@ Set the fonts of your terminal to one of your choice, provided by "Powerline fon
 #### Update *vimrc-python-ide*
 The way *GUI* settings are distringuished from *CLI* ones is a "*if*" clouse. So commenting out "start" and "end" of that clause will do the job. As there are numerious "*if*"'s, *vimrc-python-ide* has idented the "*GUI*" section of file for better readability. So, let's do some work and comment out lines:
 ```
-5 " if has("gui_running") "Start of pluggins IF
+5 " if has("gui_running") " Start of pluggins IF
 ```
 and 
 ```
-89 " endif " End of plugins IF
+91 " endif " End of plugins IF
 ```
