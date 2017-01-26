@@ -88,14 +88,17 @@ if has("gui_running") " Start of pluggins IF
     let g:virtualenv_stl_format = '[%n]'
 
     " --- <Plugin Name> --- "
+    
+    " --- GUI Color Settings --- "
+    color murphy
 endif " End of plugins IF
 
 """
 """ My Settings
 """
 syntax on
-set bg=dark
-color murphy
+" set bg=dark
+" color murphy
 set number
 set encoding=utf-8
 
@@ -129,7 +132,7 @@ endif
 """ 
 """ Filetypes handling
 """ 
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js, *.html, *.css, *.md, *.rb
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
